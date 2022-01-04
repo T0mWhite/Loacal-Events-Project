@@ -15,38 +15,10 @@ router.post('/', async (req, res) => {
   }
 });
 
-//get event by id
-router.get("/:id", (req, res) => {
-  Post.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: ["id", "event_date", "event_location", "event_time", "user_id"],
-    include: [
-      {
-        model: user,
-        as: "events",
-        attributes: ["id", "comment_text", "user_id"],
-      },
-    ],
-  }) //include the posts and comments of this user
-    .then((dbPostData) => {
-      if (!dbPostData) {
-        res.status(404).json({ message: "No Post found with this id" });
-        return;
-      }
-      res.json(dbPostData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
 //delete event
 router.delete('/:id', async (req, res) => {
   try {
-    const eventData = await event.destroy({
+    const eventData = await Event.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,

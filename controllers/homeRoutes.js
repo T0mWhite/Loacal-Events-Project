@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/Event/:id', async (req, res) => {
+router.get('/event/:id', async (req, res) => {
   try {
     const EventData = await Event.findByPk(req.params.id, {
       include: [
@@ -38,7 +38,7 @@ router.get('/Event/:id', async (req, res) => {
       ],
     });
 
-    const Event = EventData.get({ plain: true });
+    const event = eventData.get({ plain: true });
 
     res.render('Event', {
       ...Event,
@@ -72,7 +72,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 

@@ -1,0 +1,21 @@
+[
+    {
+      "title": "Birthday Party",
+      "event_time": "12:00PM",
+      "event_date": "1/3/2022",
+      "host_id": "123"
+    },
+    {
+      "title": "Drive-in Movie",
+      "event_time": "8:00PM",
+      "event_date": "1/10/2022",
+      "host_id": "456"
+    },
+    {
+      "title": "LAN PArty",
+      "event_time": "8:00PM",
+      "event_date": "1/7/2022",
+      "host_id": "456"
+    }
+  ]
+  
