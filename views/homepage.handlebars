@@ -7,12 +7,14 @@
       {{{get_emoji}}}
       <a href="/event/{{event.id}}">{{event.title}}</a>
     </h2>
-    <p>Created by {{event.user.name}} on {{format_date project.date_created}}</p>
-  </div>
   <div class="col-md-7">
     <p>
-      {{event.name}}
+      {{event.event_date}}
+      {{event.event_time}}
     </p>
+  </div>
+  <div>
+    <p>Created by {{event.user_id}} on {{format_date event.date_created}}</p>
   </div>
 </div>
 {{/each}}
