@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
   try {
     const newEvent = await Event.create({
       ...req.body,
-      user_id: req.session.user_id,
+
     });
 
     res.status(200).json(newEvent);
@@ -14,6 +14,8 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// host_id: req.session.user_id,
 
 //delete event
 router.delete('/:id', async (req, res) => {

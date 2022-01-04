@@ -6,20 +6,20 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a New Event:</h3>
 
     <form class="form new-project-form">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="event-title">Event Title:</label>
+        <input class="form-input" type="text" id="event-title" name="event-title" />
       </div>
       <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+        <label for="event-time">Event Time:</label>
+        <textarea class="form-input" id="event-time" name="event-time"></textarea>
       </div>
       <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="event-date">Event Date:</label>
+        <textarea class="form-input" id="event-date" name="event-date"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -27,14 +27,14 @@
     </form>
   </div>
 
-  {{#if projects.length}}
+  {{#if events.length}}
   <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+    <h3>You're hosting:</h3>
 
-    {{#each projects as |project|}}
+    {{#each events as |event|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h4><a href="/project/{{event.id}}">{{event.title}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>

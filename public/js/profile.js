@@ -1,14 +1,20 @@
+const session = require('express-session');
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  const title = document.querySelector('#event-title').value.trim();
+  const event_time = document.querySelector('#event-time').value.trim();
+  const event_date = document.querySelector('#event-date').value.trim();
+  // const host_id = document.querySelector('#host-id').value.trim();
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
+
+  if (title && event_time && event_date) {
+    const userID = req.session.name;
+
+    const response = await fetch(`/api/events/`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ title, event_time, event_date, userID }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -16,8 +22,9 @@ const newFormHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace('/profile');
+      alert('Event created!');
     } else {
-      alert('Failed to create project');
+      alert('Failed to create event');
     }
   }
 };
