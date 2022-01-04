@@ -1,32 +1,35 @@
-const User = require('./User');
-const Event = require('./Event');
-const Volunteers = require('./Volunteers');
+const User = require("./User");
+const Event = require("./Event");
+const Volunteers = require("./Volunteers");
 
-User.belongsToMany(Event, {
-    through: {
-        model: Volunteers,
-        unique: false
-    }
+User.hasMany(Event, {
+  foreignKey: { name: "event_id", as: "hosted_event" },
+  onDelete: "CASCADE",
 });
 
-Event.belongsToMany(User, {
-    through: {
-        model: Volunteers,
-        unique: false
-    }
+Event.belongsTo(User, {
+    foreignKey: { name: "user_id", as: "host_id" },
+    onDelete: "CASCADE",
 });
+
+// User.belongsToMany(Event, {
+//   through: {
+//     model: Volunteers,
+//     unique: false,
+//   },
+// });
+
+// Event.belongsToMany(User, {
+//   through: {
+//     model: Volunteers,
+//     unique: false,
+//   },
+// });
 
 // Event.belongsTo(User, {
 //     foreignKey: { name: "user_id", as: "hosted_id" }
 //    }
 // );
-
-
-
-
-
-
-
 
 // // Users
 // User.hasMany(Event, {
@@ -53,6 +56,5 @@ Event.belongsToMany(User, {
 // EventPost.belongsTo(User, {
 //   foreignKey: 'user_id'
 // });
-
 
 module.exports = { User, Event, Volunteers };

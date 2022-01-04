@@ -1,17 +1,17 @@
-<!-- Loop over each object in the blogPosts array -->
-{{#each blogPosts as |blogPost| }}
+<!-- Loop over each object in the projects array -->
+{{#each events as |event| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
       {{{get_emoji}}}
-      <a href="/blogPost/{{blogPost.id}}">{{blogPost.title}}</a>
+      <a href="/event/{{event.id}}">{{event.title}}</a>
     </h2>
-    <p>Created by {{blogPost.user.name}} on {{format_date blogPost.date_created}}</p>
+    <p>Created by {{event.user.name}} on {{format_date project.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{blogPost.description}}
+      {{event.name}}
     </p>
   </div>
 </div>
