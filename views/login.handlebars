@@ -1,89 +1,100 @@
-<div class="container green">
-  <div class="row">
+<body class="blue-grey darken-">
 
 
-    <div class="container teal darken-1 m6">
-      <h2>Login</h2>
-      <form class="form login-form teal lighten-2">
+
+<div class="container teal darken-1 s6">
+      <h2 class="col 6"></h2>
+      <h1>Login</h1>
+    </div>
+    
+    <div class="container teal darken-4 s6">
+      <form class="form login-form">
         <div class="input-field col s12">
           <input id="email" type="email" class="validate" />
-          <label for="email">Email</label>
+          <label for="email black-text">Email</label>
           {{! <span class="helper-text" data-error="wrong" data-success="right">Helper
           text</span> }}
         </div>
 
         <div class="input-field col s12">
           <input id="password" type="password" class="validate" />
-          <label for="password">Password</label>
+          <label for="password black-text">Password</label>
         </div>
-        <button
-          class="btn waves-effect waves btn-large"
-          type="submit"
-          name="action"
-        >Submit
-          <i class="material-icons right">send</i>
-        </button>
+
+        <div class="row">
+          <div class="col s8">
+            <button
+              class="btn md waves-effect waves btn-large pulse black-text"
+              type="submit"
+              name="action"
+            >Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+
       </form>
     </div>
 
-<div class="divider"></div>
-<div class="divider"></div>
-<div class="divider"></div>
-<div class="divider"></div>
-
-    <div class="container teal m6">
-      <h2>Signup</h2>
+    <div class="container teal darken-1 s6">
+      <h2 class="col 6"></h2>
+      <h1>Signup</h1>
+    </div>
+    <div class="container teal darken-4 s6">
       <form class="form signup-form">
         <div class="row">
           <form class="col s6">
             <div class="row">
               <div class="col s6">
                 <input
-                  placeholder="First Name"
                   id="first_name"
                   type="text"
-                  class="validate"
+                  class="validate black-text"
                 />
-                <label for="first_name">First Name</label>
+                <label for="first_name black-text">First Name</label>
               </div>
-              <div class="input-field col s12">
-                <input id="last_name" type="text" class="validate" />
-                <label for="last_name">Last Name</label>
+
+              <div class="input-field col s12 black-text">
+                <input id="last_name" type="text" class="validate black-text" />
+                <label for="last_name black-text">Last Name</label>
               </div>
             </div>
+
+            <div class="row">
+              <div class="input-field col s12 black-text">
+                <input
+                  id="password"
+                  type="password"
+                  class="validate black-text"
+                />
+                <label for="password black-text">Password</label>
+              </div>
+            </div>
+
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password" class="validate" />
-                <label for="password">Password</label>
+                <input id="email" type="email" class="validate black-text" />
+
+                <label for="email black-text">Email</label>
               </div>
             </div>
+
             <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate" />
-                <label for="email">Email</label>
+              <div class="col s8">
+                <button
+                  class="btn md waves-effect waves btn-large pulse black-text"
+                  type="submit"
+                  name="action"
+                >Submit
+                  <i class="material-icons right">send</i>
+                </button>
               </div>
             </div>
-            <div class="row">
-            <button
-              class="btn waves-effect waves btn-large"
-              type="submit"
-              name="action"
-            >Submit
-              <i class="material-icons right">send</i>
-            </button>
-            </div>
+
           </form>
         </div>
       </form>
     </div>
   </div>
-</div>
+</body>
 
-<script src="./js/login.js"></script>
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
-></script>
-
-<script src="./assets/js/materialize.js"></script>
-<script src="./assets/js/init.js"></script>
