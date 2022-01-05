@@ -17,17 +17,21 @@
   </head>
 
   <body>
+    
 
-             <a href="/" class="brand-logo center">LoopedIn</a>
-
-
-    <div class="flex-column justify-space-around">
-
-      <header class="display-flex justify-space-between align-center">
-
-        <nav>
+      
+          <header>
+             <nav>
           <div class="nav-wrapper">
 
+           <i class="large material-icons">
+             
+
+            <span>event</span> 
+           <a href="/" class="brand-logo">LOOPEDIN</a>
+           </i>
+
+            
 
             <!-- Conditionally render login or logout links -->
             {{#if logged_in}}
@@ -41,7 +45,13 @@
             {{/if}}
           </div>
         </nav>
-      </header>
+              
+          </header>
+
+
+
+       
+      
       <main class="container container-fluid mt-5">
         <!-- Render the sub layout -->
         {{{body}}}
@@ -49,7 +59,7 @@
       <footer>
 
       </footer>
-    </div>
+    
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
