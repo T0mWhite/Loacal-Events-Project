@@ -17,61 +17,44 @@
   </head>
 
   <body>
-    
 
-      
-          <header>
-             <nav>
-          <div class="nav-wrapper">
+    <header>
+      <nav>
+        <div class="nav-wrapper">
 
-           <i class="large material-icons">
-             
+          <i class="large material-icons">
 
-            <span>event</span> 
-           <a href="/" class="brand-logo">LOOPEDIN</a>
-           </i>
+            <span>event</span>
+            <a href="/" class="brand-logo">LOOPEDIN</a>
+          </i>
 
-            
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+            <a href="/profile">profile</a>
+            |
+            <a href="/dashboard">dashboard</a>
+            |
+            <button class="no-button" id="logout">logout</button>
+          {{else}}
+            <a href="/login">login</a>
+          {{/if}}
+        </div>
+      </nav>
 
-            <!-- Conditionally render login or logout links -->
-            {{#if logged_in}}
-              <a href="/profile">profile</a>
-              |
-              <a href="/dashboard">dashboard</a>
-              |
-              <button class="no-button" id="logout">logout</button>
-            {{else}}
-              <a href="/login">login</a>
-            {{/if}}
-          </div>
-        </nav>
-              
-          </header>
+    </header>
 
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{body}}}
+    </main>
+    <footer>
 
-
-       
-    
-      <main class="container container-fluid mt-5">
-        <!-- Render the sub layout -->
-        {{{body}}}
-      </main>
-      <footer>
-
-
-      </footer>
-    
+    </footer>
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
     {{/if}}
-
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="./assets/js/materialize.js"></script>
-    <script src="./assets/js/init.js"></script>
-
   </body>
-
 
 </html>

@@ -73,22 +73,29 @@ router.get("/events/:id", withAuth, async (req, res) => {
 
 // Use withAuth middleware to prevent access to route
 router.get("/dashboard", withAuth, async (req, res) => {
-  console.log("TESTSETSETSETSETES");
+  console.log("GET DASHBOARD TEST");
   try {
     const eventData = await Event.findAll({
       where: { user_id: req.session.user_id },
       include: [
         {
           model: User,
-          attributes: ["name"],
+          attributes: ["firstName"],
         },
       ],
     });
+console.log("BEFORE USER LOG");
+    const user = await User.findAll({
+      where: { firstName: req.session.firstName },
+    });
 
     const events = eventData.map((event) => event.get({ plain: true }));
+
     console.log(events);
+    // console.log(user);
     res.render("dashboard", {
       events,
+      // user,
       logged_in: true,
     });
   } catch (err) {

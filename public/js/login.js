@@ -14,8 +14,8 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the homepage
-      document.location.replace('/homepage');
+      // If successful, redirect the browser to the profile page
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
@@ -23,26 +23,38 @@ const loginFormHandler = async (event) => {
 };
 
 const signupFormHandler = async (event) => {
+  console.log("SIGNUP FORM HANDLER");
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
+  const firstName = document.querySelector('#first-name-signup').value.trim();
+  const lastName = document.querySelector('#last-name-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  if (name && email && password) {
+  if (firstName && lastName && email && password) {
+    console.log("FIELDS ARE TRUE => FETCH");
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ firstName, lastName, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+console.log("FETCH WORKED");
     if (response.ok) {
-      document.location.replace('/homepage');
+      document.location.replace('/dashboard');
     } else {
+      console.log("SIGNUP DIDNT WORK");
       alert(response.statusText);
     }
   }
 };
+
+const test = (event) => {
+  event.preventDefault();
+  console.log("DUMMYFUNC");
+}
+
+// test();
+// document.querySelector('#submitBtn').onclick(test);
 
 document
   .querySelector('.login-form')
