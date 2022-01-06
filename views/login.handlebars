@@ -1,100 +1,42 @@
-<body class="blue-grey darken-">
+<div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
 
-
-
-<div class="container teal darken-1 s6">
-      <h2 class="col 6"></h2>
-      <h1>Login</h1>
-    </div>
-    
-    <div class="container teal darken-4 s6">
-      <form class="form login-form">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate" />
-          <label for="email black-text">Email</label>
-          {{! <span class="helper-text" data-error="wrong" data-success="right">Helper
-          text</span> }}
-        </div>
-
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate" />
-          <label for="password black-text">Password</label>
-        </div>
-
-        <div class="row">
-          <div class="col s8">
-            <button
-              class="btn md waves-effect waves btn-large pulse black-text"
-              type="submit"
-              name="action"
-            >Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
-        </div>
-
-      </form>
-    </div>
-
-    <div class="container teal darken-1 s6">
-      <h2 class="col 6"></h2>
-      <h1>Signup</h1>
-    </div>
-    <div class="container teal darken-4 s6">
-      <form class="form signup-form">
-        <div class="row">
-          <form class="col s6">
-            <div class="row">
-              <div class="col s6">
-                <input
-                  id="first_name"
-                  type="text"
-                  class="validate black-text"
-                />
-                <label for="first_name black-text">First Name</label>
-              </div>
-
-              <div class="input-field col s12 black-text">
-                <input id="last_name" type="text" class="validate black-text" />
-                <label for="last_name black-text">Last Name</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="input-field col s12 black-text">
-                <input
-                  id="password"
-                  type="password"
-                  class="validate black-text"
-                />
-                <label for="password black-text">Password</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate black-text" />
-
-                <label for="email black-text">Email</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col s8">
-                <button
-                  class="btn md waves-effect waves btn-large pulse black-text"
-                  type="submit"
-                  name="action"
-                >Submit
-                  <i class="material-icons right">send</i>
-                </button>
-              </div>
-            </div>
-
-          </form>
-        </div>
-      </form>
-    </div>
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">login</button>
+      </div>
+    </form>
   </div>
-</body>
+  <div class="col-md-6">
+    <h2>Signup</h2>
 
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">signup</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="./js/login.js"></script>
