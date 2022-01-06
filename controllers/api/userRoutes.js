@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// Create a new user
+// create a new user
 router.post('/', async (req, res) => {
   console.log("USER CREATE ROUTE HIT");
   try {
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+// log in
 router.post('/login', async (req, res) => {
   console.log("LOGIN POST ROUTE")
   try {
@@ -52,6 +52,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// log out
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

@@ -15,27 +15,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
   </head>
-
+{{!-- Nav layout for every page --}}
   <body>
-
     <header>
       <nav>
         <div class="nav-wrapper">
-
-          <i class="large material-icons">
-
-            <span>event</span>
-            <a href="/homepage">LOOPEDIN</a>
-          </i>
-
-          <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <a href="/dashboard" class="black-text">dashboard</a>
-            |
-            <button class="no-button" id="logout">logout</button>
-          {{else}}
-            <a href="/login">login</a>
-          {{/if}}
+          <a href="/homepage">LOOPEDIN</a>
+          <a href="/dashboard" class="black-text">dashboard</a>
+          <button class="no-button" id="logout">logout</button>
         </div>
       </nav>
 

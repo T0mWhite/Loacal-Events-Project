@@ -2,32 +2,19 @@ const router = require("express").Router();
 const { Event, User } = require("../models");
 const withAuth = require("../utils/auth");
 
+// render the login page at site index
 router.get("/", async (req, res) => {
   try {
-    // // Get all Events and JOIN with user data
-    // const EventData = await Event.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ['name'],
-    //     },
-    //   ],
-    // });
-
-    // Serialize data so the template can read it
-    // const Events = EventData.map((Event) => Event.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
     res.render("login");
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// render the homepage
 router.get("/homepage", withAuth, async (req, res) => {
-  console.log("HOMEPAGE ROUTE START");
   try {
-    // Get all Events and JOIN with user data
+    // Get all Events and JOIN with user data to make first name available to template
     const eventData = await Event.findAll({
       include: [
         {
@@ -36,11 +23,11 @@ router.get("/homepage", withAuth, async (req, res) => {
         },
       ],
     });
-console.log(eventData);
-    // Serialize data so the template can read it
+
+    // serialize data so the template can read it
     const events = eventData.map((event) => event.get({ plain: true }));
-    console.log(events);
-    // Pass serialized data and session flag into template
+
+    // pass serialized data and session flag into template
     res.render("homepage", {
       events,
       logged_in: req.session.logged_in,
@@ -50,8 +37,8 @@ console.log(eventData);
   }
 });
 
+// render a specific event
 router.get("/events/:id", async (req, res) => {
-  console.log("EVENT GET INITIATED");
   try {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
@@ -64,9 +51,6 @@ router.get("/events/:id", async (req, res) => {
 
     const event = eventData.get({ plain: true });
     console.log(event);
-    
-    // const eventDate = formatDate(event.date_created);
-    // console.log(eventDate);
 
     res.render("event", {
       event,
@@ -77,7 +61,7 @@ router.get("/events/:id", async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// render the user's dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
   console.log("GET DASHBOARD TEST");
   try {
@@ -92,18 +76,13 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
 
     const events = eventData.map((event) => event.get({ plain: true }));
-    console.log(events);
-
-console.log("BEFORE USER LOG");
-console.log(req.session.user_id);
 
     const userData = await User.findAll({
       where: { id: req.session.user_id },
     });
-    console.log(userData);
-    const user = userData.map((user) => user.get({ plain: true }))
+
+    const user = userData.map((user) => user.get({ plain: true }));
     // const user = userData[0].user.get({ plain: true });
-    console.log(user);
 
     res.render("dashboard", {
       events,
@@ -115,6 +94,7 @@ console.log(req.session.user_id);
   }
 });
 
+// renders login - maybe not needed anymore
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
