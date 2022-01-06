@@ -12,10 +12,28 @@
       "host_id": "2"
     },
     {
-      "title": "LAN Party",
-      "event_time": "8:00PM",
-      "event_date": "1/7/2022",
-      "host_id": "3"
+      "title": "Meeting",
+      "event_time": "9:00 AM",
+      "event_date": "1/11/2022",
+      "host_id": "2"
+    },
+    {
+      "title": "Studying",
+      "event_time": "2:00 PM",
+      "event_date": "1/15/2022",
+      "host_id": "2"
+    },
+    {
+      "title": "Concert",
+      "event_time": "8:00 PM",
+      "event_date": "1/26/2022",
+      "host_id": "1"
+    },
+    {
+      "title": "Break Time",
+      "event_time": "8:00 PM",
+      "event_date": "1/10/2022",
+      "host_id": "1"
     }
   ]
   

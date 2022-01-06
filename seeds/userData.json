@@ -16,5 +16,17 @@
     "lastName": "Okima",
     "email": "amiko2k20@aol.com",
     "password": "password12345"
+  },
+  {
+    "firstName": "Dane",
+    "lastName": "Edwards",
+    "email": "bigdane@electricboogaloo.world",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Andrew",
+    "lastName": "Leyendecker",
+    "email": "a.lion@decker.org",
+    "password": "password12345"
   }
 ]

@@ -56,15 +56,16 @@
                   href="/events/{{event.id}}"
                   data-id="{{event.title}}"
                 >{{event.title}}</a></h4>
-        <div class="event-delete">
             </div>
             {{! Remove event }}
+        <div class="event-delete">
             <div class="col-md-4">
               <button
                 class="btn btn-sm btn-danger deleteBtn"
                 data-id="{{event.id}}"
               >Remove Event</button>
             </div>
+        </div>
             {{! Update event }}
             <div>
               <form class="form new-event-form">
