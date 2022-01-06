@@ -1,11 +1,11 @@
 <div class="text-center">
-  <h2>{{title}}</h2>
-  <p>{{event.time}}</p>
-  <p>{{event.date}}</p>
+  <h2>{{event.title}}</h2>
+  <p>{{event.event_time}}</p>
+  <p>{{event.event_date}}</p>
 
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>Created by {{event.user.firstName}} on {{format_date event.date_created}}</p>
   <p>
   <p>
-    <button class="btn btn-primary">Volunteer for this this event!</button>
+    {{!-- <button class="btn btn-primary">Volunteer for this this event!</button> --}}
   </p>
 </div>

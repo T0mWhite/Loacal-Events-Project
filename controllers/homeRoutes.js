@@ -25,20 +25,21 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/homepage", withAuth, async (req, res) => {
+  console.log("HOMEPAGE ROUTE START");
   try {
     // Get all Events and JOIN with user data
     const eventData = await Event.findAll({
       include: [
         {
           model: User,
-          attributes: ["name"],
+          attributes: ["firstName"],
         },
       ],
     });
-
+console.log(eventData);
     // Serialize data so the template can read it
     const events = eventData.map((event) => event.get({ plain: true }));
-    console.log(events[0].user.name);
+    console.log(events);
     // Pass serialized data and session flag into template
     res.render("homepage", {
       events,
@@ -49,22 +50,27 @@ router.get("/homepage", withAuth, async (req, res) => {
   }
 });
 
-router.get("/events/:id", withAuth, async (req, res) => {
+router.get("/events/:id", async (req, res) => {
+  console.log("EVENT GET INITIATED");
   try {
     const eventData = await Event.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ["name"],
+          attributes: ["firstName"],
         },
       ],
     });
 
     const event = eventData.get({ plain: true });
+    console.log(event);
+    
+    // const eventDate = formatDate(event.date_created);
+    // console.log(eventDate);
 
     res.render("event", {
-      ...event,
-      logged_in: req.session.logged_in,
+      event,
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -84,18 +90,24 @@ router.get("/dashboard", withAuth, async (req, res) => {
         },
       ],
     });
-console.log("BEFORE USER LOG");
-    const user = await User.findAll({
-      where: { firstName: req.session.firstName },
-    });
 
     const events = eventData.map((event) => event.get({ plain: true }));
-
     console.log(events);
-    // console.log(user);
+
+console.log("BEFORE USER LOG");
+console.log(req.session.user_id);
+
+    const userData = await User.findAll({
+      where: { id: req.session.user_id },
+    });
+    console.log(userData);
+    const user = userData.map((user) => user.get({ plain: true }))
+    // const user = userData[0].user.get({ plain: true });
+    console.log(user);
+
     res.render("dashboard", {
       events,
-      // user,
+      user,
       logged_in: true,
     });
   } catch (err) {

@@ -17,6 +17,7 @@ if (mm < 10) {
 today = yyyy + "-" + mm + "-" + dd;
 document.getElementById("event-date").setAttribute("min", today);
 
+// new event
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -43,8 +44,10 @@ const newFormHandler = async (event) => {
   }
 };
 
+// remove event
 const delButtonHandler = async (event) => {
-  console.log("HELLOOOOOOOOOOOOOOOOOOOO");
+  event.preventDefault();
+  console.log("ENTER DELETE BUTTON HANDLER");
   if (
     event.target.hasAttribute("data-id") &&
     event.target.matches(".deleteBtn")
@@ -90,8 +93,12 @@ document
   .querySelector(".new-event-form")
   .addEventListener("submit", newFormHandler);
 
+  const test = () => {
+    console.log("test");
+  }
+
 document
-  .querySelector(".event-list")
+  .querySelector(".event-delete")
   .addEventListener("click", delButtonHandler);
 
 document

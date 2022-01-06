@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Local-Events-Project</title>
+    <title>LoopedIn</title>
 
     <!-- CSS  -->
     <link
@@ -25,14 +25,12 @@
           <i class="large material-icons">
 
             <span>event</span>
-            <a href="/" class="brand-logo">LOOPEDIN</a>
+            <a href="/homepage">LOOPEDIN</a>
           </i>
 
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
-            <a href="/profile">profile</a>
-            |
-            <a href="/dashboard">dashboard</a>
+            <a href="/dashboard" class="black-text">dashboard</a>
             |
             <button class="no-button" id="logout">logout</button>
           {{else}}

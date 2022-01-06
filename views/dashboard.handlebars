@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{user.firstName}}!</h2>
+    <h2>Welcome, {{user.0.firstName}}!</h2>
   </div>
 </div>
 
@@ -20,11 +20,12 @@
       </div>
       <div class="form-group">
         <label for="event-time">Event Time:</label>
-        <textarea
+        <input type="time" id="event-time" name="event-time" />
+        {{! <textarea
           class="form-input"
           id="event-time"
           name="event-time"
-        ></textarea>
+        ></textarea> }}
       </div>
       <div class="form-group">
         <label for="event-date">Event Date:</label>
@@ -48,52 +49,71 @@
       <h3>You're hosting:</h3>
 
       {{#each events as |event|}}
-      {{!-- Display events belonging to user --}}
-        <div class="row mb-2">
-          <div class="col-md-8">
-            <h4><a
-                href="/events/{{event.id}}"
-                data-id="{{event.title}}"
-              >{{event.title}}</a></h4>
-          </div>
-          {{!-- Remove event --}}
-          <div class="col-md-4">
-            <button
-              class="btn btn-sm btn-danger deleteBtn"
-              data-id="{{event.id}}"
-            >Remove Event</button>
-          </div>
-          {{!-- Update event --}}
-          <div>
-            <form class="form new-event-form">
-              <div class="form-group">
-                <label for="event-title">Post Title:</label>
-                <input
-                  id="edit-event-title"
-                  class="form-input"
-                  type="text"
-                  name="event-title"
-                  value="{{event.title}}"
-                />
-              </div>
-              <div class="form-group">
-                <label for="event-desc">Post Body:</label>
-                <textarea
+          {{! Display events belonging to user }}
+          <div class="row mb-2">
+            <div class="col-md-8">
+              <h4><a
+                  href="/events/{{event.id}}"
+                  data-id="{{event.title}}"
+                >{{event.title}}</a></h4>
+        <div class="event-delete">
+            </div>
+            {{! Remove event }}
+            <div class="col-md-4">
+              <button
+                class="btn btn-sm btn-danger deleteBtn"
+                data-id="{{event.id}}"
+              >Remove Event</button>
+            </div>
+            {{! Update event }}
+            <div>
+              <form class="form new-event-form">
+                <div class="form-group">
+                  <label for="event-title-edit">Event Title:</label>
+                  <input
+                    id="event-title-edit"
+                    class="form-input"
+                    type="text"
+                    name="event-title"
+                    value="{{event.title}}"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="event-time-edit">Event Time:</label>
+                  <input
+                    type="time"
+                    id="event-time-edit"
+                    name="event-time"
+                    value={{event.event_time}}
+                  />
+                  {{! <textarea
                   id="edit-event-desc"
                   class="form-input"
                   name="event-desc"
                   rows="1"
-                >{{event.description}}</textarea>
-              </div>
-              <div class="form-group">
-                <button
-                  id="updateBtn"
-                  type="submit"
-                  class="btn btn-primary"
-                  data-id="{{event.id}}"
-                >Edit</button>
-              </div>
-            </form>
+                ></textarea> }}
+                </div>
+                <div class="form-group">
+                  <label for="event-date-edit">Event Date:</label>
+                  <input
+                    type="date"
+                    id="event-date-edit"
+                    name="event-date"
+                    value={{event.event_date}}
+                    min=""
+                    max="2029-12-31"
+                  />
+                </div>
+                <div class="form-group">
+                  <button
+                    id="updateBtn"
+                    type="submit"
+                    class="btn btn-primary"
+                    data-id="{{event.id}}"
+                  >Edit</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       {{/each}}
