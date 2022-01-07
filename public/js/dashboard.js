@@ -23,8 +23,6 @@ const newFormHandler = async (event) => {
 
   const title = document.querySelector("#event-title").value.trim();
   const event_time = document.querySelector("#event-time").value.trim();
-  const DTEvent_time = date_time(event_time);
-  console.log(DTEvent_time);
   const event_date = document.querySelector("#event-date").value.trim();
   // const host_id = document.querySelector('#host-id').value.trim();
 
