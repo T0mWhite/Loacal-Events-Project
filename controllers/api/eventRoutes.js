@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const moment = require('moment');
 const { Event } = require("../../models");
 
 //post new event
