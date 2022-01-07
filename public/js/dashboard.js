@@ -23,6 +23,8 @@ const newFormHandler = async (event) => {
 
   const title = document.querySelector("#event-title").value.trim();
   const event_time = document.querySelector("#event-time").value.trim();
+  const DTEvent_time = date_time(event_time);
+  console.log(DTEvent_time);
   const event_date = document.querySelector("#event-date").value.trim();
   // const host_id = document.querySelector('#host-id').value.trim();
 
@@ -34,7 +36,7 @@ const newFormHandler = async (event) => {
         "Content-Type": "application/json",
       },
     });
-
+  
     if (response.ok) {
       document.location.replace("/dashboard");
       alert("Event created!");
@@ -47,7 +49,6 @@ const newFormHandler = async (event) => {
 // remove event
 const delButtonHandler = async (event) => {
   event.preventDefault();
-  console.log("ENTER DELETE BUTTON HANDLER");
   if (
     event.target.hasAttribute("data-id") &&
     event.target.matches(".deleteBtn")
@@ -68,7 +69,7 @@ const delButtonHandler = async (event) => {
 
 const updateButtonHandler = async (event) => {
   event.preventDefault();
-  console.log("PLEASE WORK");
+
   const id = event.target.getAttribute("data-id");
   const response = await fetch(`/api/events/${id}`, {
     method: "PUT",
@@ -92,10 +93,6 @@ const updateButtonHandler = async (event) => {
 document
   .querySelector(".new-event-form")
   .addEventListener("submit", newFormHandler);
-
-  const test = () => {
-    console.log("test");
-  }
 
 document
   .querySelector(".event-delete")
