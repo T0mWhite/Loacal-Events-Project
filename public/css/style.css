@@ -21,3 +21,21 @@ header, .blogPost:not(:last-child) .comment:not(:last-child) {
   display: flex;
   justify-content: center;
 }
+
+a { 
+  color: inherit; 
+}
+
+.rounded {
+  border-radius: 6px;
+}
+
+.logo {
+  font-family: 'Permanent Marker', cursive;
+}
+
+* {
+  font-family: 'Permanent Marker', cursive;
+
+  font-family: 'Ruluko', sans-serif;
+}

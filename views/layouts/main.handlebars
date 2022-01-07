@@ -10,20 +10,32 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    {{!-- logo font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="/css/style.css">
   </head>
+  {{!-- main font --}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Ruluko&display=swap" rel="stylesheet"> 
+
 {{!-- Nav layout for every page --}}
-  <body>
+  <body class="blue-grey">
     <header>
       <nav>
-        <div class="nav-wrapper">
-          <a href="/homepage">LOOPEDIN</a>
-          <a href="/dashboard" class="black-text">dashboard</a>
-          <a href="/homepage" class="black-text">home</a>
-          <button class="no-button" id="logout">logout</button>
+        <div class="nav-wrapper #004d40 teal darken-4 white-text">
+          <div class="">
+          <a href="/homepage" class="brand-logo logo">LOOPEDIN</a>
+          </div>
+          <ul id="nav-mobile" class="right hide-on-med-and-down #004d40 teal darken-4 white-text">
+          <li><a href="/dashboard" class="waves-effect waves-light btn rounded" >dashboard</a></li>
+          <li><a href="/homepage" class="waves-effect waves-light btn rounded">home</a></li>
+          <li><a href="/" class="waves-effect waves-light btn rounded" id="logout">logout</a></li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -40,6 +52,7 @@
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 
 </html>
